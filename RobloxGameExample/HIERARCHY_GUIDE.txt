@@ -1,0 +1,103 @@
+📁 ROBLOX GAME HIERARCHY - ORGANIZED BY SCRIPT TYPE
+=================================================
+
+This reorganized structure separates scripts by their type and where they belong in Roblox Studio.
+
+📋 QUICK REFERENCE
+==================
+
+┌─ ServerScripts/
+│  ├─ PlayerManager.lua              [SERVER SCRIPT] - Player join/leave handling
+│  ├─ GameManager.lua                [SERVER SCRIPT] - Game state & rounds
+│  └─ CombatSystem.lua               [SERVER SCRIPT] - Combat mechanics
+│
+├─ LocalScripts/
+│  ├─ PlayerScripts/
+│  │  ├─ ClientUI.lua                [LOCAL SCRIPT] - HUD & UI (runs once per player)
+│  │  └─ InputHandler.lua            [LOCAL SCRIPT] - Input handling (runs once per player)
+│  │
+│  └─ CharacterScripts/
+│     ├─ CharacterHealth.lua         [LOCAL SCRIPT] - Health system (runs per character)
+│     ├─ Movement.lua                [LOCAL SCRIPT] - Movement controls (runs per character)
+│     └─ Combat.lua                  [LOCAL SCRIPT] - Combat abilities (runs per character)
+│
+├─ ModuleScripts/
+│  ├─ Constants.lua                  [MODULE SCRIPT] - Game constants (shared)
+│  ├─ Utilities.lua                  [MODULE SCRIPT] - Helper functions (shared)
+│  ├─ SpawnManager.lua               [MODULE SCRIPT] - Spawn point management
+│  └─ MapManager.lua                 [MODULE SCRIPT] - Map management
+│
+└─ WorkspaceScripts/
+   └─ NPCs/
+      ├─ BasicNPC.lua                [SCRIPT] - Place on NPC models
+      └─ NPCSpawner.lua              [MODULE SCRIPT] - Spawns NPCs
+
+🎯 WHERE TO PLACE IN ROBLOX STUDIO
+===================================
+
+ServerScripts/
+    ↓↓↓ Copy to ↓↓↓
+ServerScriptService/
+
+LocalScripts/PlayerScripts/
+    ↓↓↓ Copy to ↓↓↓
+StarterPlayer > StarterPlayerScripts
+
+LocalScripts/CharacterScripts/
+    ↓↓↓ Copy to ↓↓↓
+StarterPlayer > StarterCharacterScripts
+
+ModuleScripts/
+    ↓↓↓ Copy to ↓↓↓
+ReplicatedStorage > Modules
+
+WorkspaceScripts/
+    ↓↓↓ Copy to ↓↓↓
+Workspace (directly on objects)
+
+🔍 SCRIPT TYPES EXPLAINED
+==========================
+
+[SERVER SCRIPT]
+- Runs on the server only
+- Has access to Players and game logic
+- Cannot access LocalPlayer or mouse
+- Location: ServerScriptService
+- Example: PlayerManager.lua
+
+[LOCAL SCRIPT]
+- Runs on the client (player's computer) only
+- Has access to LocalPlayer and mouse
+- Cannot modify server state directly
+- Locations: StarterPlayer/StarterCharacterScripts and StarterPlayerScripts
+- Examples: Movement.lua, ClientUI.lua
+
+[MODULE SCRIPT]
+- Reusable code shared between scripts
+- Must be required() to use
+- Can be used by both Server and Local scripts
+- Location: ReplicatedStorage
+- Examples: Constants.lua, Utilities.lua
+
+✅ USAGE CHECKLIST
+==================
+
+□ Copy ServerScripts to ServerScriptService
+□ Copy LocalScripts/PlayerScripts to StarterPlayer > StarterPlayerScripts
+□ Copy LocalScripts/CharacterScripts to StarterPlayer > StarterCharacterScripts
+□ Copy ModuleScripts to ReplicatedStorage > Modules
+□ Place BasicNPC.lua on NPC models in Workspace
+□ Test with multiple players in Studio
+□ Check Output for errors
+
+📌 NOTES
+========
+
+- All scripts are interdependent and follow Roblox conventions
+- Module scripts use the require() pattern for dependencies
+- Server scripts initialize on game start
+- Local scripts initialize when player joins/character spawns
+- The README.md contains detailed documentation for each script
+
+Created: March 2, 2026
+Version: 1.0 (Organized by Script Type)

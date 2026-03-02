@@ -10,34 +10,37 @@ This is a complete example Roblox game hierarchy with functional scripts demonst
 
 ```
 RobloxGameExample/
-├── ServerScriptService/
-│   ├── PlayerManager.lua          # Handles player joining/leaving
-│   ├── GameManager.lua            # Manages game state and rounds
-│   └── CombatSystem.lua           # Combat mechanics & damage
 │
-├── StarterPlayer/
-│   ├── StarterCharacterScripts/
-│   │   ├── CharacterHealth.lua    # Character health system
-│   │   ├── Movement.lua           # Movement & controls
-│   │   └── Combat.lua             # Character combat abilities
+├── 📁 ServerScripts/
+│   ├── PlayerManager.lua          [Server Script]
+│   ├── GameManager.lua            [Server Script]
+│   └── CombatSystem.lua           [Server Script]
+│
+├── 📁 LocalScripts/
+│   ├── 📁 CharacterScripts/
+│   │   ├── CharacterHealth.lua    [Local Script]
+│   │   ├── Movement.lua           [Local Script]
+│   │   └── Combat.lua             [Local Script]
 │   │
-│   └── StarterPlayerScripts/
-│       ├── ClientUI.lua           # Player UI & HUD
-│       └── InputHandler.lua       # Input management
+│   └── 📁 PlayerScripts/
+│       ├── ClientUI.lua           [Local Script]
+│       └── InputHandler.lua       [Local Script]
 │
-├── ReplicatedStorage/
-│   └── Modules/
-│       ├── Constants.lua          # Shared game constants
-│       └── Utilities.lua          # Helper functions
+├── 📁 ModuleScripts/
+│   ├── Constants.lua              [Module Script]
+│   ├── Utilities.lua              [Module Script]
+│   ├── SpawnManager.lua           [Module Script]
+│   └── MapManager.lua             [Module Script]
 │
-└── Workspace/
-    ├── Maps/
-    │   ├── SpawnManager.lua       # Manage spawn points
-    │   └── MapManager.lua         # Map layout & hazards
-    │
-    └── NPCs/
-        ├── BasicNPC.lua           # Individual NPC behavior
-        └── NPCSpawner.lua         # NPC spawning system
+├── 📁 WorkspaceScripts/
+│   ├── 📁 NPCs/
+│   │   ├── BasicNPC.lua           [Script - Place on NPC]
+│   │   └── NPCSpawner.lua         [Module Script]
+│   │
+│   └── 📁 Maps/
+│       └── (Map-related scripts)
+│
+└── README.md                      [Documentation]
 ```
 
 ---
@@ -260,21 +263,49 @@ Available to both client and server scripts.
 
 ---
 
-## 🔧 How to Use
+## 🔧 How to Use in Roblox Studio
 
-1. **In Roblox Studio:**
-   - Copy each script to its corresponding location in the hierarchy
-   - Ensure folder structure matches the layout
-   - Test with multiple players
+### Script Placement Guide
+
+| Folder | Roblox Location | Script Type |
+|--------|-----------------|------------|
+| **ServerScripts/** | ServerScriptService | Server Scripts |
+| **LocalScripts/PlayerScripts/** | StarterPlayer > StarterPlayerScripts | Local Scripts |
+| **LocalScripts/CharacterScripts/** | StarterPlayer > StarterCharacterScripts | Local Scripts |
+| **ModuleScripts/** | ReplicatedStorage > Modules | Module Scripts |
+| **WorkspaceScripts/NPCs/** | Workspace > (NPC Models) | Scripts/Modules |
+
+### Setup Steps
+
+1. **Create Folders in Roblox Studio:**
+   - ServerScriptService (already exists)
+   - StarterPlayer → StarterPlayerScripts
+   - StarterPlayer → StarterCharacterScripts
+   - ReplicatedStorage → Modules
+   - Workspace → (place NPC scripts directly on NPC models)
+
+2. **Copy Scripts:**
+   - Place `ServerScripts/` contents into **ServerScriptService**
+   - Place `LocalScripts/PlayerScripts/` contents into **StarterPlayerScripts**
+   - Place `LocalScripts/CharacterScripts/` contents into **StarterCharacterScripts**
+   - Place `ModuleScripts/` contents into **ReplicatedStorage/Modules**
+   - Place `WorkspaceScripts/` scripts into their respective objects
+
+3. **Test:**
+   - Play the game with multiple players
+   - Check Output console for errors
+   - Verify UI appears and controls work
+
+### Customization
 
 2. **To Expand:**
-   - Add new abilities in `Combat.lua`
-   - Create new item systems in `ServerScriptService`
-   - Add UI elements in `ClientUI.lua`
-   - Extend NPC behavior in `BasicNPC.lua`
+   - Add new abilities in `LocalScripts/CharacterScripts/Combat.lua`
+   - Create new systems in `ServerScripts/`
+   - Add UI elements in `LocalScripts/PlayerScripts/ClientUI.lua`
+   - Extend NPC behavior in `WorkspaceScripts/NPCs/BasicNPC.lua`
 
 3. **To Customize:**
-   - Adjust constants in `Constants.lua`
+   - Adjust constants in `ModuleScripts/Constants.lua`
    - Modify spawn points in `SpawnManager.lua`
    - Change NPC stats in `NPCSpawner.lua`
    - Update control keys in movement scripts
