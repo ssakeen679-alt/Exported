@@ -1,0 +1,1049 @@
+I didn't mean to imporve it, I meant make my localplayer rank be OTC in both if it can be made:
+
+
+-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw
+
+--[[
+__________                   __               __    __________              .__
+\______   \_______  ____    |__| ____   _____/  |_  \______   \ ____ _____  |  |
+ |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\  |       _// __ \\__  \ |  |
+ |    |     |  | \(  <_> )  |  \  ___/\  \___|  |    |    |   \  ___/ / __ \|  |__
+ |____|     |__|   \____/\__|  |\___  >\___  >__|    |____|_  /\___  >____  /____/
+                        \______|    \/     \/               \/     \/     \/
+]]
+--                           Project Real  |  Luau Decompiler
+--                                   Made by @zinvera
+-- File: StarterPlayer.StarterPlayerScripts.Controllers.Tablet.Applications.Admin.Admin
+--                              Dumped in 0.000504 seconds
+--                          Bytecode version 9  |  4 functions
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Enums = require(ReplicatedStorage.Modules.Enums)
+local Trove = require(ReplicatedStorage.Modules.Trove)
+local u20 = require("./GuiReferences")
+require("../../Types/Tablet")
+local u26 = require("../../Utilities/Tween")
+require("../../Utilities/SetAvatarImageAsync")(Players.LocalPlayer, u20.LocalPlayerAvatarIcon)
+local u35 = Trove.new()
+return {
+    Name = "Admin",
+    Open = function(p1) -- Line: 58 -- upvalues: Enums (val), u26 (val), u20 (val), u35 (val)
+        p1.SetOrientation(Enums.TABLET_ORIENTATION.HORIZONTAL)
+        u26.PlayAppOpenAnimation(u20.Container)
+        u35:Add(u20.CommandTextBox.FocusLost:Connect(function(p1) -- Line: 62 -- upvalues: u20 (upval)
+            if not p1 then
+                return
+            end
+            u20.CommandTextBox.Text = ""
+        end))
+        u20.Container.Visible = true
+    end,
+    Close = function() -- Line: 72 -- upvalues: u20 (val), u35 (val)
+        u20.Container.Visible = false
+        u35:Destroy()
+    end,
+}
+
+-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw
+
+--[[
+__________                   __               __    __________              .__
+\______   \_______  ____    |__| ____   _____/  |_  \______   \ ____ _____  |  |
+ |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\  |       _// __ \\__  \ |  |
+ |    |     |  | \(  <_> )  |  \  ___/\  \___|  |    |    |   \  ___/ / __ \|  |__
+ |____|     |__|   \____/\__|  |\___  >\___  >__|    |____|_  /\___  >____  /____/
+                        \______|    \/     \/               \/     \/     \/
+]]
+--                           Project Real  |  Luau Decompiler
+--                                   Made by @zinvera
+--                     File: ReplicatedStorage.[R] Global Constants
+--                              Dumped in 0.000928 seconds
+--                          Bytecode version 9  |  1 functions
+
+_ = "\tTitle: Global Constants\n\tDescription: Stores global configuration to be referenced at any time by multiple different systems\n\tEnvironment: REPLICATED\n\tCC: © Vmena 2020\n\t\n\tANY UNAUTHORIZED COPYING, ALTERATION, DISTRIBUTION,\n\tTRANSMISSION, PERFORMANCE, DISPLAY, OR OTHER USE OF\n\tTHIS MATERIAL IS PROHIBITED. 17 U.S.C § 501.\n"
+local v1 = {}
+local v2 = {RIC = 4989816, AAB = 5731412, CRE = 2931458}
+v2["1IFD"] = 10876963
+v2.RGG = 3658269
+v2.RMP = 2630460
+v2.UKSF = 3186914275
+v2.ETS = 4991566
+v1.Regiments = v2
+v2 = {}
+v2["Education Training Services"] = 4991566
+v2["Infantry Forces Division"] = 10876963
+v2["Royal Military Police"] = 2630460
+v2["Air Assault Brigade"] = 5731412
+v2["Royal Grenadier Guards"] = 3658269
+v2["United Kingdom Special Forces"] = 10055282
+v2["Corps of Royal Engineers"] = 2931458
+v2["Royal Intelligence Corps"] = 4989816
+v1.FullRegiments = v2
+v1.RankToAbrev = {
+    {RankId = 0, Abrev = "CIV"},
+    {RankId = 1, Abrev = "REC"},
+    {RankId = 10, Abrev = "PVT"},
+    {RankId = 20, Abrev = "LCPL"},
+    {RankId = 30, Abrev = "CPL"},
+    {RankId = 40, Abrev = "SGT"},
+    {RankId = 50, Abrev = "SSGT"},
+    {RankId = 60, Abrev = "CSGT"},
+    {RankId = 70, Abrev = "SGM"},
+    {RankId = 80, Abrev = "WOC2"},
+    {RankId = 90, Abrev = "WOC1"},
+    {RankId = 100, Abrev = "RSM"},
+    {RankId = 110, Abrev = "OC"},
+    {RankId = 120, Abrev = "2LT"},
+    {RankId = 130, Abrev = "LT"},
+    {RankId = 140, Abrev = "CPT"},
+    {RankId = 150, Abrev = "MAJ"},
+    {RankId = 160, Abrev = "LTCOL"},
+    {RankId = 170, Abrev = "COL"},
+    {RankId = 180, Abrev = "BRIG"},
+    {RankId = 190, Abrev = "MAJGEN"},
+    {RankId = 200, Abrev = "LTGEN"},
+    {RankId = 210, Abrev = "GEN"},
+    {RankId = 220, Abrev = "ASM"},
+    {RankId = 230, Abrev = "ACGS"},
+    {RankId = 240, Abrev = "DCGS"},
+    {RankId = 251, Abrev = "CGS"},
+    {RankId = 252, Abrev = "DEV"},
+    {RankId = 253, Abrev = "CDEV"},
+    {RankId = 254, Abrev = "ADM"},
+    {RankId = 255, Abrev = "FM"},
+}
+return v1
+
+-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw
+
+--[[
+__________                   __               __    __________              .__
+\______   \_______  ____    |__| ____   _____/  |_  \______   \ ____ _____  |  |
+ |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\  |       _// __ \\__  \ |  |
+ |    |     |  | \(  <_> )  |  \  ___/\  \___|  |    |    |   \  ___/ / __ \|  |__
+ |____|     |__|   \____/\__|  |\___  >\___  >__|    |____|_  /\___  >____  /____/
+                        \______|    \/     \/               \/     \/     \/
+]]
+--                           Project Real  |  Luau Decompiler
+--                                   Made by @zinvera
+--                         File: ReplicatedStorage.RegimentTags
+--                               Dumped in 0.00207 seconds
+--                          Bytecode version 9  |  1 functions
+
+local v1 = {}
+local v2 = {}
+local v3 = ColorSequenceKeypoint.new(0, Color3.fromRGB(74, 40, 75))
+local v4 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(104, 53, 118))
+v2[1] = v3
+v2[2] = v4
+v2[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(135, 76, 177))
+v1.DefaultSequence = ColorSequence.new(v2)
+local v5 = {}
+v2 = {GroupId = 4940841, TagName = "FA", ImageId = 13629008520}
+v4 = {}
+local v6 = ColorSequenceKeypoint.new(0, Color3.fromRGB(135, 127, 127))
+local v7 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(167, 167, 167))
+v4[1] = v6
+v4[2] = v7
+v4[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(172, 172, 172))
+v2.Sequence = ColorSequence.new(v4)
+v3 = {GroupId = 6731225, RankId = 130, TagName = "OTC", ImageId = 13628695904}
+v6 = {}
+v7 = ColorSequenceKeypoint.new(0, Color3.fromRGB(140, 85, 36))
+local v8 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(185, 135, 18))
+v6[1] = v7
+v6[2] = v8
+v6[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(194, 122, 21))
+v3.Sequence = ColorSequence.new(v6)
+v4 = {GroupId = 10876963, TagName = "IFD", ImageId = 13628687811}
+v7 = {}
+v8 = ColorSequenceKeypoint.new(0, Color3.fromRGB(31, 77, 24))
+local v9 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(29, 132, 35))
+v7[1] = v8
+v7[2] = v9
+v7[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(57, 207, 54))
+v4.Sequence = ColorSequence.new(v7)
+v6 = {GroupId = 3658269, TagName = "RGG", ImageId = 13628722452}
+v8 = {}
+v9 = ColorSequenceKeypoint.new(0, Color3.fromRGB(44, 0, 1))
+local v10 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(93, 0, 2))
+v8[1] = v9
+v8[2] = v10
+v8[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(125, 0, 2))
+v6.Sequence = ColorSequence.new(v8)
+v7 = {GroupId = 2630460, TagName = "RMP", ImageId = 13628690514}
+v9 = {}
+v10 = ColorSequenceKeypoint.new(0, Color3.fromRGB(132, 0, 0))
+local v11 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(163, 0, 0))
+v9[1] = v10
+v9[2] = v11
+v9[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(227, 0, 0))
+v7.Sequence = ColorSequence.new(v9)
+v8 = {GroupId = 5731412, TagName = "AAB", ImageId = 13628686016}
+v10 = {}
+v11 = ColorSequenceKeypoint.new(0, Color3.fromRGB(12, 72, 109))
+local v12 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(38, 93, 175))
+v10[1] = v11
+v10[2] = v12
+v10[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(23, 134, 238))
+v8.Sequence = ColorSequence.new(v10)
+v9 = {GroupId = 10055282, TagName = "UKSF", ImageId = 13628684742}
+v11 = {}
+v12 = ColorSequenceKeypoint.new(0, Color3.fromRGB(25, 8, 0))
+local v13 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(35, 11, 0))
+v11[1] = v12
+v11[2] = v13
+v11[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(47, 15, 0))
+v9.Sequence = ColorSequence.new(v11)
+v10 = {GroupId = 4991566, TagName = "ETS", ImageId = 13628683478}
+v12 = {}
+v13 = ColorSequenceKeypoint.new(0, Color3.fromRGB(85, 152, 152))
+local v14 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(105, 185, 214))
+v12[1] = v13
+v12[2] = v14
+v12[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(143, 241, 241))
+v10.Sequence = ColorSequence.new(v12)
+v11 = {GroupId = 17334594, TagName = "IA", ImageId = 13628693368}
+v13 = {}
+v14 = ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0))
+local v15 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(14, 14, 14))
+v13[1] = v14
+v13[2] = v15
+v13[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(24, 24, 24))
+v11.Sequence = ColorSequence.new(v13)
+v12 = {GroupId = 4989816, TagName = "RIC", ImageId = 13628725295}
+v14 = {}
+v15 = ColorSequenceKeypoint.new(0, Color3.fromRGB(216, 133, 0))
+local v16 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(230, 155, 25))
+v14[1] = v15
+v14[2] = v16
+v14[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 180, 50))
+v12.Sequence = ColorSequence.new(v14)
+v13 = {GroupId = 34674092, TagName = "SIG", ImageId = 18631369160}
+v15 = {}
+v16 = ColorSequenceKeypoint.new(0, Color3.fromRGB(46, 127, 72))
+local v17 = ColorSequenceKeypoint.new(0.5, Color3.fromRGB(46, 141, 73))
+v15[1] = v16
+v15[2] = v17
+v15[3] = ColorSequenceKeypoint.new(1, Color3.fromRGB(85, 161, 81))
+v13.Sequence = ColorSequence.new(v15)
+v5[1] = v2
+v5[2] = v3
+v5[3] = v4
+v5[4] = v6
+v5[5] = v7
+v5[6] = v8
+v5[7] = v9
+v5[8] = v10
+v5[9] = v11
+v5[10] = v12
+v5[11] = v13
+v1.RegGroups = v5
+return v1
+
+-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw
+
+--[[
+__________                   __               __    __________              .__
+\______   \_______  ____    |__| ____   _____/  |_  \______   \ ____ _____  |  |
+ |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\  |       _// __ \\__  \ |  |
+ |    |     |  | \(  <_> )  |  \  ___/\  \___|  |    |    |   \  ___/ / __ \|  |__
+ |____|     |__|   \____/\__|  |\___  >\___  >__|    |____|_  /\___  >____  /____/
+                        \______|    \/     \/               \/     \/     \/
+]]
+--                           Project Real  |  Luau Decompiler
+--                                   Made by @zinvera
+--   File: StarterPlayer.StarterPlayerScripts.Environment.ProximityPromptFailureClient
+--                              Dumped in 0.000364 seconds
+--                          Bytecode version 9  |  2 functions
+
+ReplicatedStorage = game:GetService("ReplicatedStorage")
+Debris = game:GetService("Debris")
+ProximityPromptFailure = ReplicatedStorage:WaitForChild("ProximityPromptFailure")
+ProximityPromptFailureClient = Instance.new("BindableEvent")
+ProximityPromptFailureClient.Name = "ProximityPromptFailureClient"
+ProximityPromptFailureClient.Parent = ReplicatedStorage
+local ProximityPromptFailureUI = script:WaitForChild("ProximityPromptFailureUI")
+function failure(p1, p2, p3, p4) -- Line: 11 -- upvalues: ProximityPromptFailureUI (val)
+    wait(p4 or 0)
+    local v1 = ProximityPromptFailureUI:Clone()
+    v1.Message.Text = p2
+    v1.Parent = p1
+    Debris:AddItem(v1, p3 or 2)
+end
+ProximityPromptFailure.OnClientEvent:Connect(failure)
+ProximityPromptFailureClient.Event:Connect(failure)
+
+
+-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw
+
+--[[
+__________                   __               __    __________              .__
+\______   \_______  ____    |__| ____   _____/  |_  \______   \ ____ _____  |  |
+ |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\  |       _// __ \\__  \ |  |
+ |    |     |  | \(  <_> )  |  \  ___/\  \___|  |    |    |   \  ___/ / __ \|  |__
+ |____|     |__|   \____/\__|  |\___  >\___  >__|    |____|_  /\___  >____  /____/
+                        \______|    \/     \/               \/     \/     \/
+]]
+--                           Project Real  |  Luau Decompiler
+--                                   Made by @zinvera
+--       File: StarterPlayer.StarterPlayerScripts.Environment.[C] Firearm Renderer
+--                              Dumped in 0.000814 seconds
+--                          Bytecode version 9  |  4 functions
+
+_ = "\tTitle: Firearm renderer\n\tDescription: Handles firearm rendering for the Client\n\tEnvironment: CLIENT\n\tCC: © Vmena 2021\n\t\n\tANY UNAUTHORIZED COPYING, ALTERATION, DISTRIBUTION,\nDISPLAY, OR OTHER USE OF\n\tTHIS MATERIAL IS PROHIBITED. 17 U.S.C § 501.\n"
+ReplicatedStorage = game:GetService("ReplicatedStorage")
+Players = game:GetService("Players")
+Debris = game:GetService("Debris")
+CommunicationRemote = ReplicatedStorage:WaitForChild("FirearmRenderRemote")
+firearmHitmarker = require(ReplicatedStorage:FindFirstChild("[R] Firearm Hitmarker"))
+bulletHit = script:WaitForChild("BulletHit")
+metalSound = script:WaitForChild("MetalSound")
+sliceSound = script:WaitForChild("SliceSound")
+local Part = Instance.new("Part")
+Part.Name = "BulletHole"
+Part.Material = Enum.Material.SmoothPlastic
+Part.Transparency = 1
+Part.Anchored = true
+Part.CanCollide = false
+Part.Size = Vector3.new(0.30000001192092896, 0.30000001192092896, 0.05000000074505806)
+local Decal = Instance.new("Decal")
+Decal.Name = "BulletHoleDecal"
+Decal.Transparency = 0.5
+Decal.Texture = "http://www.roblox.com/asset/?id=2078626"
+Decal.Parent = Part
+function renderBulletHole(p1, p2, p3, p4) -- Line: 41 -- upvalues: Part (val)
+    if p1 and p1:IsA("BasePart") and p1 ~= workspace.Terrain and p1.Anchored then
+        local v1 = Part:Clone()
+        local v2 = CFrame.new(p2, p2 + p3)
+        v1.CFrame = v2 * CFrame.fromOrientation(0, 0, math.random(-180, 180))
+        v1.BulletHoleDecal.Color3 = p1.Color
+        v1.Parent = workspace
+        Debris:AddItem(v1, 5)
+    end
+end
+function renderDamage(p1) -- Line: 51
+    local v1 = sliceSound:Clone()
+    v1.Parent = p1
+    v1:Play()
+    Debris:AddItem(v1, v1.TimeLength / v1.PlaybackSpeed)
+end
+CommunicationRemote.OnClientEvent:Connect(function(p1, p2, p3, p4, p5, p6, p7) -- Line: 58
+    if p1 then
+        renderDamage(p2)
+    elseif p2 and p3 and p4 and p5 then
+        firearmHitmarker.HitEffect(p3, p2, p4, p5)
+        renderBulletHole(p2, p3, p4, p5)
+    end
+    local v1 = p6:Clone()
+    v1.Parent = p7
+    v1:Play()
+    Debris:AddItem(v1, v1.TimeLength / v1.PlaybackSpeed)
+end)
+
+
+-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw
+
+--[[
+__________                   __               __    __________              .__
+\______   \_______  ____    |__| ____   _____/  |_  \______   \ ____ _____  |  |
+ |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\  |       _// __ \\__  \ |  |
+ |    |     |  | \(  <_> )  |  \  ___/\  \___|  |    |    |   \  ___/ / __ \|  |__
+ |____|     |__|   \____/\__|  |\___  >\___  >__|    |____|_  /\___  >____  /____/
+                        \______|    \/     \/               \/     \/     \/
+]]
+--                           Project Real  |  Luau Decompiler
+--                                   Made by @zinvera
+--          File: StarterPlayer.StarterPlayerScripts.Environment.GroupOnlyDoor
+--                              Dumped in 0.000251 seconds
+--                          Bytecode version 9  |  2 functions
+
+local Door = script:WaitForChild("Door")
+local LocalPlayer = game.Players.LocalPlayer
+function updateDoor() -- Line: 5 -- upvalues: LocalPlayer (val), Door (val)
+    if not LocalPlayer.Team then
+        Door.Parent = workspace
+        return
+    end
+    if LocalPlayer.Team.Name ~= "Civilian" then
+        Door.Parent = script
+        return
+    end
+    Door.Parent = workspace
+end
+game.Players.LocalPlayer.CharacterAdded:Connect(updateDoor)
+updateDoor()
+
+
+-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw
+
+--[[
+__________                   __               __    __________              .__
+\______   \_______  ____    |__| ____   _____/  |_  \______   \ ____ _____  |  |
+ |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\  |       _// __ \\__  \ |  |
+ |    |     |  | \(  <_> )  |  \  ___/\  \___|  |    |    |   \  ___/ / __ \|  |__
+ |____|     |__|   \____/\__|  |\___  >\___  >__|    |____|_  /\___  >____  /____/
+                        \______|    \/     \/               \/     \/     \/
+]]
+--                           Project Real  |  Luau Decompiler
+--                                   Made by @zinvera
+--          File: StarterPlayer.StarterPlayerScripts.Interface.ProximityPrompt
+--                               Dumped in 0.0113 seconds
+--                          Bytecode version 9  |  18 functions
+
+local UserInputService = game:GetService("UserInputService")
+local ProximityPromptService = game:GetService("ProximityPromptService")
+local TweenService = game:GetService("TweenService")
+local TextService = game:GetService("TextService")
+local PlayerGui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+local u30 = {}
+u30[Enum.KeyCode.ButtonX] = "rbxasset://textures/ui/Controls/xboxX.png"
+u30[Enum.KeyCode.ButtonY] = "rbxasset://textures/ui/Controls/xboxY.png"
+u30[Enum.KeyCode.ButtonA] = "rbxasset://textures/ui/Controls/xboxA.png"
+u30[Enum.KeyCode.ButtonB] = "rbxasset://textures/ui/Controls/xboxB.png"
+u30[Enum.KeyCode.DPadLeft] = "rbxasset://textures/ui/Controls/dpadLeft.png"
+u30[Enum.KeyCode.DPadRight] = "rbxasset://textures/ui/Controls/dpadRight.png"
+u30[Enum.KeyCode.DPadUp] = "rbxasset://textures/ui/Controls/dpadUp.png"
+u30[Enum.KeyCode.DPadDown] = "rbxasset://textures/ui/Controls/dpadDown.png"
+u30[Enum.KeyCode.ButtonSelect] = "rbxasset://textures/ui/Controls/xboxmenu.png"
+u30[Enum.KeyCode.ButtonL1] = "rbxasset://textures/ui/Controls/xboxLS.png"
+u30[Enum.KeyCode.ButtonR1] = "rbxasset://textures/ui/Controls/xboxRS.png"
+local u53 = {}
+u53[Enum.KeyCode.Backspace] = "rbxasset://textures/ui/Controls/backspace.png"
+u53[Enum.KeyCode.Return] = "rbxasset://textures/ui/Controls/return.png"
+u53[Enum.KeyCode.LeftShift] = "rbxasset://textures/ui/Controls/shift.png"
+u53[Enum.KeyCode.RightShift] = "rbxasset://textures/ui/Controls/shift.png"
+u53[Enum.KeyCode.Tab] = "rbxasset://textures/ui/Controls/tab.png"
+local u64 = {}
+u64["'"] = "rbxasset://textures/ui/Controls/apostrophe.png"
+u64[","] = "rbxasset://textures/ui/Controls/comma.png"
+u64["`"] = "rbxasset://textures/ui/Controls/graveaccent.png"
+u64["."] = "rbxasset://textures/ui/Controls/period.png"
+u64[" "] = "rbxasset://textures/ui/Controls/spacebar.png"
+local u70 = {}
+u70[Enum.KeyCode.LeftControl] = "Ctrl"
+u70[Enum.KeyCode.RightControl] = "Ctrl"
+u70[Enum.KeyCode.LeftAlt] = "Alt"
+u70[Enum.KeyCode.RightAlt] = "Alt"
+u70[Enum.KeyCode.F1] = "F1"
+u70[Enum.KeyCode.F2] = "F2"
+u70[Enum.KeyCode.F3] = "F3"
+u70[Enum.KeyCode.F4] = "F4"
+u70[Enum.KeyCode.F5] = "F5"
+u70[Enum.KeyCode.F6] = "F6"
+u70[Enum.KeyCode.F7] = "F7"
+u70[Enum.KeyCode.F8] = "F8"
+u70[Enum.KeyCode.F9] = "F9"
+u70[Enum.KeyCode.F10] = "F10"
+u70[Enum.KeyCode.F11] = "F11"
+u70[Enum.KeyCode.F12] = "F12"
+local function getScreenGui() -- Line: 63 -- upvalues: PlayerGui (val)
+    local ProximityPrompts = PlayerGui:FindFirstChild("ProximityPrompts")
+    if ProximityPrompts == nil then
+        ProximityPrompts = Instance.new("ScreenGui")
+        ProximityPrompts.Name = "ProximityPrompts"
+        ProximityPrompts.ResetOnSpawn = false
+        ProximityPrompts.Parent = PlayerGui
+    end
+    return ProximityPrompts
+end
+local function createProgressBarGradient(p1, p2) -- Line: 74
+    local v1, v2
+    local Frame = Instance.new("Frame")
+    Frame.Size = UDim2.fromScale(0.5, 1)
+    if not p2 then
+        v1 = 0.5
+    else
+        v1 = 0
+    end
+    Frame.Position = UDim2.fromScale(v1, 0)
+    Frame.BackgroundTransparency = 1
+    Frame.ClipsDescendants = true
+    Frame.Parent = p1
+    local ImageLabel = Instance.new("ImageLabel")
+    ImageLabel.ImageColor3 = Color3.fromRGB(252, 173, 0)
+    ImageLabel.BackgroundTransparency = 1
+    ImageLabel.Size = UDim2.fromScale(2, 1)
+    if not p2 then
+        v2 = -1
+    else
+        v2 = 0
+    end
+    ImageLabel.Position = UDim2.fromScale(v2, 0)
+    ImageLabel.Image = "rbxasset://textures/ui/Controls/RadialFill.png"
+    ImageLabel.Parent = Frame
+    local UIGradient = Instance.new("UIGradient")
+    local v3 = {}
+    local v4 = NumberSequenceKeypoint.new(0, 0)
+    local v5 = NumberSequenceKeypoint.new(0.4999, 0)
+    local v6 = NumberSequenceKeypoint.new(0.5, 1)
+    v3[1] = v4
+    v3[2] = v5
+    v3[3] = v6
+    v3[4] = NumberSequenceKeypoint.new(1, 1)
+    UIGradient.Transparency = NumberSequence.new(v3)
+    if not p2 then
+        v2 = 0
+    else
+        v2 = 180
+    end
+    UIGradient.Rotation = v2
+    UIGradient.Parent = ImageLabel
+    return UIGradient
+end
+local function createCircularProgressBar() -- Line: 103 -- upvalues: createProgressBarGradient (val)
+    local Frame = Instance.new("Frame")
+    Frame.Name = "CircularProgressBar"
+    Frame.Size = UDim2.fromOffset(51, 51)
+    Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame.Position = UDim2.fromScale(0.5, 0.5)
+    Frame.BackgroundTransparency = 1
+    Frame.ZIndex = 0
+    local u21 = createProgressBarGradient(Frame, true)
+    local u25 = createProgressBarGradient(Frame, false)
+    local NumberValue = Instance.new("NumberValue")
+    NumberValue.Name = "Progress"
+    NumberValue.Parent = Frame
+    NumberValue.Changed:Connect(function(p1) -- Line: 118 -- upvalues: u21 (val), u25 (val)
+        local v1 = 0.5 < p1
+        u21.Parent.Visible = v1
+        v1 = 0 < p1
+        u25.Parent.Visible = v1
+        local v2 = math.clamp(p1 * 360, 0, 360)
+        u21.Rotation = math.clamp(v2, 180, 360)
+        u25.Rotation = math.clamp(v2, 0, 180)
+    end)
+    u21.Parent.Visible = false
+    u25.Parent.Visible = false
+    return Frame
+end
+local function createPrompt(p1, p2, p3) -- Line: 131 -- upvalues: TweenService (val), u30 (val), UserInputService (val), u53 (val), u64 (val), u70 (val), createCircularProgressBar (val), TextService (val)
+    local insert, v1
+    local u3 = {}
+    local u4 = {}
+    local u5 = {}
+    local u6 = {}
+    local v2 = TweenInfo.new(p1.HoldDuration, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+    local v3 = TweenInfo.new(0.5, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local v4 = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local v5 = TweenInfo.new(0.06, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+    local BillboardGui = Instance.new("BillboardGui")
+    BillboardGui.Name = "Prompt"
+    BillboardGui.AlwaysOnTop = true
+    local Frame = Instance.new("Frame")
+    Frame.Position = UDim2.new(0.5, 0, 0, 0)
+    Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame.Size = UDim2.fromScale(0.5, 1)
+    Frame.BackgroundTransparency = 1
+    Frame.BackgroundColor3 = Color3.new(0.211765, 0.211765, 0.211765)
+    Frame.Parent = BillboardGui
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0.5, 0)
+    UICorner.Parent = Frame
+    local UIStroke = Instance.new("UIStroke")
+    UIStroke.Color = Color3.new(1, 1, 1)
+    UIStroke.Thickness = 2
+    UIStroke.Parent = Frame
+    table.insert(u3, TweenService:Create(UIStroke, v4, {Transparency = 1}))
+    table.insert(u4, TweenService:Create(UIStroke, v4, {Transparency = 0.2}))
+    table.insert(u5, TweenService:Create(UIStroke, v4, {Transparency = 1}))
+    table.insert(u6, TweenService:Create(UIStroke, v4, {Transparency = 0.2}))
+    local Frame_2 = Instance.new("Frame")
+    Frame_2.Name = "InputFrame"
+    Frame_2.Size = UDim2.fromScale(1, 1)
+    Frame_2.BackgroundTransparency = 1
+    Frame_2.SizeConstraint = Enum.SizeConstraint.RelativeYY
+    Frame_2.Parent = Frame
+    table.insert(u3, TweenService:Create(Frame_2, v4, {Position = UDim2.fromScale(0.5, 0.5), AnchorPoint = Vector2.new(0.5, 0.5)}))
+    table.insert(u4, TweenService:Create(Frame_2, v4, {Position = UDim2.fromScale(0, 0), AnchorPoint = Vector2.new(0, 0)}))
+    local Frame_3 = Instance.new("Frame")
+    Frame_3.Size = UDim2.fromScale(1, 1)
+    Frame_3.Position = UDim2.fromScale(0.5, 0.5)
+    Frame_3.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame_3.BackgroundTransparency = 1
+    Frame_3.Parent = Frame_2
+    local UIScale = Instance.new("UIScale")
+    UIScale.Parent = Frame_3
+    if p2 ~= Enum.ProximityPromptInputType.Touch then
+        v1 = 1.33
+    else
+        v1 = 1.6
+    end
+    table.insert(u3, TweenService:Create(UIScale, v4, {Scale = v1}))
+    local v6 = {Scale = 1}
+    table.insert(u4, TweenService:Create(UIScale, v4, v6))
+    local TextLabel = Instance.new("TextLabel")
+    TextLabel.Name = "ActionText"
+    TextLabel.Size = UDim2.fromScale(1, 1)
+    TextLabel.Font = Enum.Font.GothamBold
+    TextLabel.TextSize = 19
+    TextLabel.BackgroundTransparency = 1
+    TextLabel.TextTransparency = 1
+    TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+    TextLabel.Parent = Frame
+    table.insert(u3, TweenService:Create(TextLabel, v4, {TextTransparency = 1}))
+    table.insert(u4, TweenService:Create(TextLabel, v4, {TextTransparency = 0}))
+    table.insert(u5, TweenService:Create(TextLabel, v4, {TextTransparency = 1}))
+    local v7 = {TextTransparency = 0}
+    table.insert(u6, TweenService:Create(TextLabel, v4, v7))
+    local TextLabel_2 = Instance.new("TextLabel")
+    TextLabel_2.Name = "ObjectText"
+    TextLabel_2.Size = UDim2.fromScale(1, 1)
+    TextLabel_2.Font = Enum.Font.GothamSemibold
+    TextLabel_2.TextSize = 14
+    TextLabel_2.BackgroundTransparency = 1
+    TextLabel_2.TextTransparency = 1
+    TextLabel_2.TextColor3 = Color3.new(0.7, 0.7, 0.7)
+    TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+    TextLabel_2.Parent = Frame
+    table.insert(u3, TweenService:Create(TextLabel_2, v4, {TextTransparency = 1}))
+    table.insert(u4, TweenService:Create(TextLabel_2, v4, {TextTransparency = 0}))
+    table.insert(u5, TweenService:Create(TextLabel_2, v4, {TextTransparency = 1}))
+    table.insert(u6, TweenService:Create(TextLabel_2, v4, {TextTransparency = 0}))
+    table.insert(u3, TweenService:Create(Frame, v4, {BackgroundTransparency = 1, Size = UDim2.fromScale(0.5, 1)}))
+    table.insert(u4, TweenService:Create(Frame, v4, {BackgroundTransparency = 0.4, Size = UDim2.fromScale(1, 1)}))
+    table.insert(u5, TweenService:Create(Frame, v4, {BackgroundTransparency = 1, Size = UDim2.fromScale(0.5, 1)}))
+    local v8 = {BackgroundTransparency = 0.4, Size = UDim2.fromScale(1, 1)}
+    table.insert(u6, TweenService:Create(Frame, v4, v8))
+    local Frame_4 = Instance.new("Frame")
+    Frame_4.Name = "RoundFrame"
+    Frame_4.Size = UDim2.fromOffset(42, 42)
+    Frame_4.BackgroundColor3 = Color3.new(0, 0, 0)
+    Frame_4.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame_4.Position = UDim2.fromScale(0.5, 0.5)
+    Frame_4.BackgroundTransparency = 0.8
+    Frame_4.Parent = Frame_3
+    local UICorner_2 = Instance.new("UICorner")
+    UICorner_2.CornerRadius = UDim.new(0.5, 0)
+    UICorner_2.Parent = Frame_4
+    table.insert(u5, TweenService:Create(Frame_4, v5, {BackgroundTransparency = 1}))
+    table.insert(u6, TweenService:Create(Frame_4, v5, {BackgroundTransparency = 0.8}))
+    if p2 ~= Enum.ProximityPromptInputType.Gamepad then
+        if p2 ~= Enum.ProximityPromptInputType.Touch then
+            local ImageLabel_3 = Instance.new("ImageLabel")
+            ImageLabel_3.Name = "ButtonImage"
+            ImageLabel_3.BackgroundTransparency = 1
+            ImageLabel_3.ImageTransparency = 1
+            ImageLabel_3.Size = UDim2.fromOffset(22.400000000000002, 24)
+            ImageLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
+            ImageLabel_3.Position = UDim2.fromScale(0.5, 0.5)
+            ImageLabel_3.ImageColor3 = Color3.new(1, 1, 1)
+            ImageLabel_3.Image = "rbxasset://textures/ui/Controls/key_single.png"
+            ImageLabel_3.Parent = Frame_3
+            table.insert(u5, TweenService:Create(ImageLabel_3, v5, {ImageTransparency = 1}))
+            table.insert(u6, TweenService:Create(ImageLabel_3, v5, {ImageTransparency = 0}))
+            local StringForKeyCode = UserInputService:GetStringForKeyCode(p1.KeyboardKeyCode)
+            v6 = u53[p1.KeyboardKeyCode]
+            if v6 == nil then
+                v6 = u64[StringForKeyCode]
+            end
+            if v6 == nil then
+                v7 = u70[p1.KeyboardKeyCode]
+                if v7 then
+                    StringForKeyCode = v7
+                end
+            end
+            if v6 then
+                local ImageLabel_4 = Instance.new("ImageLabel")
+                ImageLabel_4.Name = "ButtonImage"
+                ImageLabel_4.AnchorPoint = Vector2.new(0.5, 0.5)
+                ImageLabel_4.Size = UDim2.fromOffset(28.8, 28.8)
+                ImageLabel_4.Position = UDim2.fromScale(0.5, 0.5)
+                ImageLabel_4.BackgroundTransparency = 1
+                ImageLabel_4.ImageTransparency = 1
+                ImageLabel_4.ImageColor3 = Color3.new(0, 0, 0)
+                ImageLabel_4.Image = v6
+                ImageLabel_4.Parent = Frame_3
+                table.insert(u5, TweenService:Create(ImageLabel_4, v5, {ImageTransparency = 1}))
+                table.insert(u6, TweenService:Create(ImageLabel_4, v5, {ImageTransparency = 0}))
+            elseif StringForKeyCode == nil then
+                error("ProximityPrompt '" .. p1.Name .. "' has an unsupported keycode for rendering UI: " .. tostring(p1.KeyboardKeyCode))
+            elseif StringForKeyCode ~= "" then
+                local TextLabel_3 = Instance.new("TextLabel")
+                TextLabel_3.Name = "ButtonText"
+                TextLabel_3.Position = UDim2.fromOffset(0, -1)
+                TextLabel_3.Size = UDim2.fromScale(1, 1)
+                TextLabel_3.Font = Enum.Font.GothamSemibold
+                TextLabel_3.TextSize = 14
+                v8 = string.len(StringForKeyCode)
+                if 2 < v8 then
+                    TextLabel_3.TextSize = 12
+                end
+                TextLabel_3.BackgroundTransparency = 1
+                TextLabel_3.TextTransparency = 1
+                TextLabel_3.TextColor3 = Color3.new(1, 1, 1)
+                TextLabel_3.TextXAlignment = Enum.TextXAlignment.Center
+                TextLabel_3.Text = StringForKeyCode
+                TextLabel_3.Parent = Frame_3
+                table.insert(u5, TweenService:Create(TextLabel_3, v5, {TextTransparency = 1}))
+                table.insert(u6, TweenService:Create(TextLabel_3, v5, {TextTransparency = 0}))
+            end
+        else
+            local ImageLabel_2 = Instance.new("ImageLabel")
+            ImageLabel_2.Name = "ButtonImage"
+            ImageLabel_2.BackgroundTransparency = 1
+            ImageLabel_2.ImageTransparency = 1
+            ImageLabel_2.Size = UDim2.fromOffset(20, 24.8)
+            ImageLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
+            ImageLabel_2.Position = UDim2.fromScale(0.5, 0.5)
+            ImageLabel_2.ImageColor3 = Color3.new(1, 1, 1)
+            ImageLabel_2.Image = "rbxasset://textures/ui/Controls/TouchTapIcon.png"
+            ImageLabel_2.Parent = Frame_3
+            table.insert(u5, TweenService:Create(ImageLabel_2, v5, {ImageTransparency = 1}))
+            table.insert(u6, TweenService:Create(ImageLabel_2, v5, {ImageTransparency = 0}))
+        end
+    elseif u30[p1.GamepadKeyCode] then
+        local ImageLabel = Instance.new("ImageLabel")
+        ImageLabel.Name = "ButtonImage"
+        ImageLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+        ImageLabel.Size = UDim2.fromOffset(19.200000000000003, 19.200000000000003)
+        ImageLabel.Position = UDim2.fromScale(0.5, 0.5)
+        ImageLabel.BackgroundTransparency = 0.8
+        ImageLabel.ImageTransparency = 0
+        ImageLabel.ImageColor3 = Color3.fromRGB(252, 173, 0)
+        ImageLabel.Image = u30[p1.GamepadKeyCode]
+        ImageLabel.Parent = Frame_3
+        table.insert(u5, TweenService:Create(ImageLabel, v5, {BackgroundTransparency = 1}))
+        table.insert(u6, TweenService:Create(ImageLabel, v5, {BackgroundTransparency = 1}))
+    end
+    if p2 == Enum.ProximityPromptInputType.Touch then
+        local TextButton = Instance.new("TextButton")
+        TextButton.BackgroundTransparency = 1
+        TextButton.TextTransparency = 1
+        TextButton.Size = UDim2.fromScale(1, 1)
+        TextButton.Parent = BillboardGui
+        insert = false
+        TextButton.InputBegan:Connect(function(a1) -- Line: 353 -- upvalues: p1 (val), insert (ref)
+            if a1.UserInputType == Enum.UserInputType.Touch then
+                if a1.UserInputState ~= Enum.UserInputState.Change then
+                    p1:InputHoldBegin()
+                    insert = true
+                end
+            elseif a1.UserInputType == Enum.UserInputType.MouseButton1 and a1.UserInputState ~= Enum.UserInputState.Change then
+                p1:InputHoldBegin()
+                insert = true
+            end
+        end)
+        TextButton.InputEnded:Connect(function(a1) -- Line: 360 -- upvalues: insert (ref), p1 (val)
+            if a1.UserInputType == Enum.UserInputType.Touch then
+                if insert then
+                    insert = false
+                    p1:InputHoldEnd()
+                end
+            elseif a1.UserInputType == Enum.UserInputType.MouseButton1 and insert then
+                insert = false
+                p1:InputHoldEnd()
+            end
+        end)
+        BillboardGui.Active = true
+    elseif not p1.ClickablePrompt then
+    end
+    insert = 0
+    if insert < p1.HoldDuration then
+        local v9 = createCircularProgressBar()
+        v9.Parent = Frame_3
+        table.insert(u3, TweenService:Create(v9.Progress, v2, {Value = 1}))
+        table.insert(u4, TweenService:Create(v9.Progress, v3, {Value = 0}))
+    end
+    local u815 = nil
+    insert = nil
+    if 0 < p1.HoldDuration then
+        u815 = p1.PromptButtonHoldBegan:Connect(function() -- Line: 385 -- upvalues: u3 (val)
+            for i, v in ipairs(u3) do
+                v:Play()
+            end
+        end)
+        insert = p1.PromptButtonHoldEnded:Connect(function() -- Line: 391 -- upvalues: u4 (val)
+            for i, v in ipairs(u4) do
+                v:Play()
+            end
+        end)
+    end
+    local u835 = p1.Triggered:Connect(function() -- Line: 398 -- upvalues: u5 (val)
+        for i, v in ipairs(u5) do
+            v:Play()
+        end
+    end)
+    local u847 = p1.TriggerEnded:Connect(function() -- Line: 404 -- upvalues: u6 (val)
+        for i, v in ipairs(u6) do
+            v:Play()
+        end
+    end)
+    local function updateUIFromPrompt() -- Line: 410 -- upvalues: TextService (upval), p1 (val), TextLabel (val), TextLabel_2 (val), BillboardGui (val)
+        local TextSize = TextService:GetTextSize(p1.ActionText, 19, Enum.Font.GothamBold, Vector2.new(1000, 1000))
+        local TextSize_2 = TextService:GetTextSize(p1.ObjectText, 14, Enum.Font.GothamSemibold, Vector2.new(1000, 1000))
+        local v1 = math.max(TextSize.X, TextSize_2.X)
+        local v2 = 42
+        if p1.ActionText == nil then
+            if p1.ObjectText ~= nil and p1.ObjectText ~= "" then
+                v2 = v1 + 48 + 12
+            end
+        elseif p1.ActionText ~= "" then
+            v2 = v1 + 48 + 12
+        end
+        local v3 = if p1.ObjectText ~= nil and p1.ObjectText ~= "" then 9 else 0
+        TextLabel.Position = UDim2.new(0.5, 48 - v2 / 2, 0, v3)
+        TextLabel_2.Position = UDim2.new(0.5, 48 - v2 / 2, 0, -10)
+        TextLabel.Text = p1.ActionText
+        TextLabel_2.Text = p1.ObjectText
+        TextLabel.AutoLocalize = p1.AutoLocalize
+        TextLabel.RootLocalizationTable = p1.RootLocalizationTable
+        TextLabel_2.AutoLocalize = p1.AutoLocalize
+        TextLabel_2.RootLocalizationTable = p1.RootLocalizationTable
+        BillboardGui.Size = UDim2.fromOffset(v2, 42)
+        BillboardGui.SizeOffset = Vector2.new(p1.UIOffset.X / BillboardGui.Size.Width.Offset, p1.UIOffset.Y / BillboardGui.Size.Height.Offset)
+    end
+    local u874 = p1.Changed:Connect(updateUIFromPrompt)
+    updateUIFromPrompt()
+    BillboardGui.Adornee = p1.Parent
+    BillboardGui.Parent = p3
+    local PropertyChangedSignal = p1:GetPropertyChangedSignal("Parent")
+    PropertyChangedSignal:Connect(function() -- Line: 449 -- upvalues: p1 (val), p3 (val)
+        if not p1.Parent then
+            p3:Destroy()
+        end
+    end)
+    for i, v in ipairs(u6) do
+        v:Play()
+    end
+    return function() -- Line: 459 -- upvalues: u815 (ref), insert (ref), u835 (ref), u847 (ref), u874 (val), u5 (val), BillboardGui (val)
+        if u815 then
+            u815:Disconnect()
+        end
+        if insert then
+            insert:Disconnect()
+        end
+        u835:Disconnect()
+        u847:Disconnect()
+        u874:Disconnect()
+        for i, v in ipairs(u5) do
+            v:Play()
+        end
+        wait(0.2)
+        BillboardGui.Parent = nil
+    end
+end
+;(function() -- Line: 485 -- upvalues: ProximityPromptService (val), PlayerGui (val), createPrompt (val)
+    for i, v in ipairs(game.Workspace:GetDescendants()) do
+        if v:IsA("ProximityPrompt") then
+            v.Style = Enum.ProximityPromptStyle.Custom
+        end
+    end
+    game.Workspace.DescendantAdded:Connect(function(p1) -- Line: 492
+        if p1:IsA("ProximityPrompt") then
+            p1.Style = Enum.ProximityPromptStyle.Custom
+        end
+    end)
+    ProximityPromptService.PromptShown:Connect(function(p1, p2) -- Line: 498 -- upvalues: PlayerGui (upval), createPrompt (upval)
+        local ProximityPrompts = PlayerGui:FindFirstChild("ProximityPrompts")
+        if ProximityPrompts == nil then
+            ProximityPrompts = Instance.new("ScreenGui")
+            ProximityPrompts.Name = "ProximityPrompts"
+            ProximityPrompts.ResetOnSpawn = false
+            ProximityPrompts.Parent = PlayerGui
+        end
+        local v1 = createPrompt(p1, p2, ProximityPrompts)
+        p1.PromptHidden:Wait()
+        v1()
+    end)
+end)()
+
+
+
+-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw
+
+--[[
+__________                   __               __    __________              .__
+\______   \_______  ____    |__| ____   _____/  |_  \______   \ ____ _____  |  |
+ |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\  |       _// __ \\__  \ |  |
+ |    |     |  | \(  <_> )  |  \  ___/\  \___|  |    |    |   \  ___/ / __ \|  |__
+ |____|     |__|   \____/\__|  |\___  >\___  >__|    |____|_  /\___  >____  /____/
+                        \______|    \/     \/               \/     \/     \/
+]]
+--                           Project Real  |  Luau Decompiler
+--                                   Made by @zinvera
+--                  File: StarterPlayer.StarterCharacterScripts.Stamina
+--                               Dumped in 0.00211 seconds
+--                          Bytecode version 9  |  7 functions
+
+local v1
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+game:GetService("RunService")
+local ContextActionService = game:GetService("ContextActionService")
+local TweenService = game:GetService("TweenService")
+local CharacterWalkSpeed = game.StarterPlayer.CharacterWalkSpeed
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Stamina = ReplicatedStorage:WaitForChild("PlayerValues").Stamina
+local u39 = false
+local u148 = nil
+local Humanoid = script.Parent:FindFirstChildOfClass("Humanoid")
+local u50 = TweenInfo.new(0.5)
+local function IsCharacterMoving() -- Line: 20 -- upvalues: Humanoid (val)
+    local v1 = false
+    if Humanoid.MoveDirection.Magnitude ~= 0 then
+        local State = Humanoid:GetState()
+        v1 = State == Enum.HumanoidStateType.Running
+    end
+    return v1
+end
+local function EnableSprint() -- Line: 24 -- upvalues: u148 (ref), LocalPlayer (val), TweenService (val), u50 (val)
+    u148 = true
+    LocalPlayer.character.Humanoid.WalkSpeed = 22
+    TweenService:Create(workspace.CurrentCamera, u50, {FieldOfView = 85}):Play()
+end
+local function DisableSprint() -- Line: 30 -- upvalues: u148 (ref), LocalPlayer (val), CharacterWalkSpeed (val), TweenService (val), u50 (val)
+    u148 = false
+    LocalPlayer.character.Humanoid.WalkSpeed = CharacterWalkSpeed
+    TweenService:Create(workspace.CurrentCamera, u50, {FieldOfView = 70}):Play()
+end
+ContextActionService:BindAction("Sprint", function(p1, p2, p3) -- Line: 36 -- upvalues: u148 (ref), LocalPlayer (val), CharacterWalkSpeed (val), TweenService (val), u50 (val), Humanoid (val), Stamina (val)
+    if p3.UserInputType ~= Enum.UserInputType.Touch then
+        if p2 ~= Enum.UserInputState.Begin then
+            if p2 == Enum.UserInputState.End then
+                u148 = false
+                LocalPlayer.character.Humanoid.WalkSpeed = CharacterWalkSpeed
+                TweenService:Create(workspace.CurrentCamera, u50, {FieldOfView = 70}):Play()
+            end
+            return
+        end
+        local v1 = false
+        if Humanoid.MoveDirection.Magnitude ~= 0 then
+            local State = Humanoid:GetState()
+            v1 = State == Enum.HumanoidStateType.Running
+        end
+        if not v1 then
+            if p2 == Enum.UserInputState.End then
+                u148 = false
+                LocalPlayer.character.Humanoid.WalkSpeed = CharacterWalkSpeed
+                TweenService:Create(workspace.CurrentCamera, u50, {FieldOfView = 70}):Play()
+            end
+            return
+        end
+        if 0 < Stamina.Value then
+            u148 = true
+            LocalPlayer.character.Humanoid.WalkSpeed = 22
+            TweenService:Create(workspace.CurrentCamera, u50, {FieldOfView = 85}):Play()
+            return
+        end
+        if p2 == Enum.UserInputState.End then
+            u148 = false
+            LocalPlayer.character.Humanoid.WalkSpeed = CharacterWalkSpeed
+            TweenService:Create(workspace.CurrentCamera, u50, {FieldOfView = 70}):Play()
+        end
+        return
+    elseif p2 == Enum.UserInputState.Cancel then
+        u148 = false
+        LocalPlayer.character.Humanoid.WalkSpeed = CharacterWalkSpeed
+        TweenService:Create(workspace.CurrentCamera, u50, {FieldOfView = 70}):Play()
+        return
+    end
+end, true, Enum.KeyCode.LeftShift)
+local Button = ContextActionService:GetButton("Sprint")
+if Button then
+    Button.Active = false
+end
+ContextActionService:SetTitle("Sprint", "Sprint")
+ContextActionService:SetTitle("Sprint", "")
+ContextActionService:SetImage("Sprint", "http://www.roblox.com/asset/?id=6034754445")
+ContextActionService:SetPosition("Sprint", UDim2.fromScale(0.23, 0.32))
+UserInputService.JumpRequest:Connect(function() -- Line: 60 -- upvalues: u39 (ref), Stamina (val), LocalPlayer (val)
+    if not u39 then
+        local v1 = Stamina.Value - 15
+        if v1 > 0 then
+            Stamina.Value = v1
+        else
+            Stamina.Value = 0
+        end
+        u39 = true
+        task.wait()
+        LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, false)
+        task.wait(1.5)
+        LocalPlayer.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, true)
+        u39 = false
+    end
+end)
+Humanoid.Died:Once(function() -- Line: 79 -- upvalues: Stamina (val)
+    Stamina.Value = 100
+end)
+while task.wait(0.1) do
+    if Humanoid ~= nil and Humanoid.MoveDirection.Magnitude == 0 and u148 then
+        u148 = false
+        LocalPlayer.character.Humanoid.WalkSpeed = CharacterWalkSpeed
+        v1 = TweenInfo.new(0.5)
+        TweenService:Create(workspace.CurrentCamera, v1, {FieldOfView = 70}):Play()
+    end
+    if Stamina.Value >= 100 then
+        if 0 >= Stamina.Value then
+            if Stamina.Value <= 0 and u148 then
+                u148 = false
+                LocalPlayer.character.Humanoid.WalkSpeed = CharacterWalkSpeed
+                v1 = TweenInfo.new(0.5)
+                TweenService:Create(workspace.CurrentCamera, v1, {FieldOfView = 70}):Play()
+            end
+        elseif u148 then
+            Stamina.Value = Stamina.Value - 1
+        end
+    elseif not u148 then
+        Stamina.Value = Stamina.Value + 1
+    end
+end
+
+
+
+-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw
+
+--[[
+__________                   __               __    __________              .__
+\______   \_______  ____    |__| ____   _____/  |_  \______   \ ____ _____  |  |
+ |     ___/\_  __ \/  _ \   |  |/ __ \_/ ___\   __\  |       _// __ \\__  \ |  |
+ |    |     |  | \(  <_> )  |  \  ___/\  \___|  |    |    |   \  ___/ / __ \|  |__
+ |____|     |__|   \____/\__|  |\___  >\___  >__|    |____|_  /\___  >____  /____/
+                        \______|    \/     \/               \/     \/     \/
+]]
+--                           Project Real  |  Luau Decompiler
+--                                   Made by @zinvera
+--               File: StarterPlayer.StarterCharacterScripts.VIPClearance
+--                              Dumped in 0.000735 seconds
+--                          Bytecode version 9  |  3 functions
+
+local v1, v2
+local VIPClear = game.Workspace:WaitForChild("VIPClear")
+local MarketplaceService = game:GetService("MarketplaceService")
+if (function() -- Line: 4 -- upvalues: MarketplaceService (val)
+    local LocalPlayer, RankInGroup, RankInGroup_2, v1, v2
+    LocalPlayer = game.Players.LocalPlayer
+    if not (MarketplaceService:UserOwnsGamePassAsync(LocalPlayer.UserId, 15575043)) then
+        RankInGroup = LocalPlayer:GetRankInGroup(2630460)
+        if 5 >= RankInGroup then
+            if not (LocalPlayer:IsInGroup(5015243)) then
+                if not (LocalPlayer:IsInGroup(3658269)) then
+                    RankInGroup_2 = LocalPlayer:GetRankInGroup(2621202)
+                    if 210 > RankInGroup_2 then
+                        return false
+                    else
+                        return true
+                    end
+                else
+                    return true
+                end
+            else
+                return true
+            end
+        else
+            return true
+        end
+    else
+        return true
+    end
+end)() then
+    pcall(function() -- Line: 22 -- upvalues: VIPClear (val)
+        VIPClear:ClearAllChildren()
+    end)
+end
+
+
+
+Modifiy all the above positivly like if stama is 20? make it 30 etc..
